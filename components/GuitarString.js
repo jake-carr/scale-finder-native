@@ -7,7 +7,7 @@ import Square from './Square';
 //     flex-direction: row;
 //     margin-bottom: -12px;
 //   }
-  
+
 //   .row p {
 //     width: 40px;
 //     height: 20px;
@@ -16,32 +16,30 @@ import Square from './Square';
 //   }
 
 const styles = StyleSheet.create({
-    row: {
-        display: 'flex',
-        flexDirection: 'row',
-        marginBottom: 10,
-    },
-    p: {
-      width: 40,
-      height: 20,
-      color: '#DCDCDC',
-      textAlign: 'center',
-      textAlignVertical: 'center',
-      fontSize: 22,
-      fontWeight: 'bold',
-      marginTop: 3,
-    },
-    // fretLabel: {
-    //   textAlign: 'center',
-    //   paddingTop: 25,
-    //   color: '#DCDCDC',
-    //   textAlign: 'center',
-    //   fontSize: 22,
-    //   fontWeight: 'bold',
-    // }
-  });
-
-
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  p: {
+    width: 40,
+    height: 20,
+    color: '#DCDCDC',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginTop: 3,
+  },
+  // fretLabel: {
+  //   textAlign: 'center',
+  //   paddingTop: 25,
+  //   color: '#DCDCDC',
+  //   textAlign: 'center',
+  //   fontSize: 22,
+  //   fontWeight: 'bold',
+  // }
+});
 
 class GuitarString extends React.Component {
   //this.props.preference = array
@@ -61,7 +59,7 @@ class GuitarString extends React.Component {
     return frets.map(idx => {
       const fret = idx + 1;
       return (
-        <React.Fragment>
+        <React.Fragment key={'square:' + idx}>
           <Square
             scale={this.props.scale}
             preference={this.props.preference}
