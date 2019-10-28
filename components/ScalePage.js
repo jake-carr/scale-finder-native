@@ -10,9 +10,6 @@ import {
 } from '../utils.js';
 import Fretboard from './Fretboard';
 
-// scales[selectedScaleIndex]
-// createScale takes pattern and root
-
 const styles = StyleSheet.create({
   header: {
     display: 'flex',
@@ -126,4 +123,3 @@ class ScalePage extends React.Component {
 
 export default ScalePage;
 
-// <Text>Scale: {createScale(this.props.root, this.props.preference, scalePattern)}</Text>

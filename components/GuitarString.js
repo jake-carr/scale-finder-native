@@ -74,7 +74,6 @@ class GuitarString extends React.Component {
     });
   };
 
-  //todo: fret labels   +css
 
   render() {
     return (

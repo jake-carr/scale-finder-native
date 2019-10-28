@@ -2,12 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import GuitarString from './GuitarString';
 
-// .fretboard {
-//     display: flex;
-//     flex-direction: column;
-//     width: 100%;
-//     justify-content: center;
-//   }
 
 const styles = StyleSheet.create({
   fretboard: {

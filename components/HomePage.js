@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, Button, Picker } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { sharps, flats, scales } from '../constants.js';
 
-// notepicker, button for each note
-
 class HomePage extends React.Component {
   state = {
     selectedScaleIndex: 0,
@@ -34,6 +32,23 @@ class HomePage extends React.Component {
   render() {
     return (
       <View>
+        <Picker
+          selectedValue={this.state.selectedNote}
+          style={{ height: 100, width: 200 }}
+          onValueChange={(note) =>
+            this.setState({ selectedNote: note })
+          }
+        >
+          {sharps.map((note) => {
+            return (
+              <Picker.Item
+                key={note}
+                label={note}
+                value={note}
+              ></Picker.Item>
+            );
+          })}
+        </Picker>
         <Picker
           selectedValue={this.state.selectedScaleIndex}
           style={{ height: 100, width: 200 }}
