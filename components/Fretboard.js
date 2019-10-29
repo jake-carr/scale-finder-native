@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import GuitarString from './GuitarString';
-
+import FretLabels from './FretLabels';
 
 const styles = StyleSheet.create({
   fretboard: {
@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     height: '90%',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingBottom: 30,
   },
 });
 
@@ -62,6 +63,7 @@ class Fretboard extends React.Component {
             highlightAllRoots={this.props.highlightAllRoots}
             showLabels={true}
           />
+          <FretLabels />
         </View>
       </View>
     );

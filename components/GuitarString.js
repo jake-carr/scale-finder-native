@@ -74,7 +74,6 @@ class GuitarString extends React.Component {
     });
   };
 
-
   render() {
     return (
       <View style={styles.row} className="row">

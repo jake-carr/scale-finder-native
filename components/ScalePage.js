@@ -122,4 +122,3 @@ class ScalePage extends React.Component {
 }
 
 export default ScalePage;
-
