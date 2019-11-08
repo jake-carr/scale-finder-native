@@ -7,15 +7,14 @@ const styles = StyleSheet.create({
   row: {
     display: 'flex',
     flexDirection: 'row',
-    marginBottom: 5,
     width: '100%',
     justifyContent: 'center',
   },
   p: {
     marginRight: '2%',
     color: '#DCDCDC',
-    fontSize: 20,
-    paddingTop: '0.25%',
+    fontSize: 22,
+    paddingTop: '0.3%',
     textAlign: 'center',
     textAlignVertical: 'center',  
   },

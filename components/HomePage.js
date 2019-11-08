@@ -10,8 +10,17 @@ const styles = StyleSheet.create ({
     width: '100%',
     height: '100%',
   },
+  picker: {
+    height: 75,
+    width: 100,
+  },
+  pickerWide: {
+    height: 75,
+    width: 250
+  },
   pickerItem: {
     color: '#ECECEC',
+    fontSize: 22
   },
   pickerContainer: {
     display: 'flex',
@@ -29,8 +38,6 @@ const styles = StyleSheet.create ({
   button: {
     width: 150,
     height: 50,
-    borderWidth: 1,
-    borderColor: '#900AC5',
     backgroundColor: '#7500A3',
     justifyContent: 'center',
   },
@@ -49,6 +56,14 @@ const styles_small = StyleSheet.create ({
     width: '100%',
     height: '100%',
   },
+  picker: {
+    height: 75,
+    width: 100,
+  },
+  pickerWide: {
+    height: 75,
+    width: 250
+  },
   pickerItem: {
     color: '#ECECEC',
   },
@@ -60,7 +75,7 @@ const styles_small = StyleSheet.create ({
   },
   buttonContainer: {
     display: 'flex',
-    marginTop: '15%',
+    marginTop: '20%',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -89,8 +104,17 @@ const styles_large = StyleSheet.create ({
     width: '100%',
     height: '100%',
   },
+  picker: {
+    height: 120,
+    width: 120,
+  },
+  pickerWide: {
+    height: 120,
+    width: 350
+  },
   pickerItem: {
     color: '#ECECEC',
+    fontSize: 32,
   },
   pickerContainer: {
     display: 'flex',
@@ -102,22 +126,20 @@ const styles_large = StyleSheet.create ({
     paddingRight: '30%',
   },
   buttonContainer: {
-    marginTop: '20%',
+    marginTop: '15%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
-    width: 150,
-    height: 50,
-    borderWidth: 1,
-    borderColor: '#900AC5',
+    width: 160,
+    height: 60,
     backgroundColor: '#7500A3',
     justifyContent: 'center',
   },
   buttonText: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#ECECEC',
     textAlign: 'center',
@@ -131,8 +153,17 @@ const styles_xl = StyleSheet.create ({
     width: '100%',
     height: '100%',
   },
+  picker: {
+    height: 150,
+    width: 200,
+  },
+  pickerWide: {
+    height: 150,
+    width: 400
+  },
   pickerItem: {
     color: '#ECECEC',
+    fontSize: 36,
   },
   pickerContainer: {
     display: 'flex',
@@ -144,17 +175,15 @@ const styles_xl = StyleSheet.create ({
     paddingRight: '30%',
   },
   buttonContainer: {
-    marginTop: '15%',
+    marginTop: '10%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   button: {
-    width: 240,
+    width: 200,
     height: 80,
-    borderWidth: 2,
-    borderColor: '#900AC5',
     backgroundColor: '#7500A3',
     justifyContent: 'center',
   },
@@ -217,7 +246,6 @@ class HomePage extends React.Component {
             style={this.state.styles.picker}
             itemStyle={this.state.styles.pickerItem}
             selectedValue={this.state.selectedNote}
-            style={{ height: 100, width: 200 }}
             onValueChange={(note, itemIndex) =>
               this.setState({ selectedNote: note, selectedNoteIndex: itemIndex })
             }
@@ -233,10 +261,9 @@ class HomePage extends React.Component {
             })}
           </Picker>
           <Picker
-            style={this.state.styles.picker}
+            style={this.state.styles.pickerWide}
             itemStyle={this.state.styles.pickerItem}
             selectedValue={this.state.selectedScaleIndex}
-            style={{ height: 75, width: 300 }}
             onValueChange={(scale, itemIndex) =>
               this.setState({ selectedScaleIndex: scale })
             }

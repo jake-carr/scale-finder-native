@@ -6,8 +6,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
     square: {
-        width: 50,
-        height: 30,
+        width: 55,
+        height: 35,
         marginRight: 5,
         justifyContent: 'center',
         display: 'flex',

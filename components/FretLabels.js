@@ -7,22 +7,21 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 10,
-    marginLeft: 30,
-    marginRight: 5,
-    marginTop: 5
+    marginLeft: 25,
+    marginTop: 0,
   },
   fretLabel: {
     textAlign: 'center',
     color: 'white',
     fontSize: 30,
-    width: 55,
+    width: 60,
     lineHeight: 28,
   },
   double: {
     lineHeight: 20,
   },
   placeholder: {
-    width: 35,
+    width: 40,
   },
 });
 
