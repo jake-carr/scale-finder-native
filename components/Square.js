@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { convertNoteToString } from '../utils';
-import { screenSize } from '../constants';
+import { screenSize, assignStyles } from '../constants';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
@@ -126,7 +126,6 @@ const styles_xl = StyleSheet.create({
 //   root: '#900AC5',
 //   scale: '#7500A3',
 //   empty: '#6D6969',
-//   emptyOdd: '#858282',
 //   highlight: '#23C486',
 // };
 
@@ -147,7 +146,11 @@ class Square extends React.Component {
     };
 
     assignID = props => {
-        if (props.highlightAllRoots === true && props.note === props.scale[0]) {
+        if (props.highlightAllRoots === false && (props.note === props.scale[0])) {
+            this.setState({ id: styles.root });
+        } else if (this.state.id === styles.highlight) {
+            return
+        } else if (props.highlightAllRoots === true && props.note === props.scale[0]) {
             this.setState({ id: styles.highlight });
         } else if (props.note === props.scale[0]) {
             this.setState({ id: styles.root });
@@ -161,13 +164,7 @@ class Square extends React.Component {
 
     componentDidMount() {
         this.assignID(this.props);
-        if (screenSize === 'small') {
-            this.setState({styles: styles_small})
-        } else if (screenSize === 'large') {
-            this.setState({styles: styles_large})
-        } else if (screenSize === 'xl') {
-            this.setState({ styles: styles_xl })
-          }
+        assignStyles(screenSize);
     }
 
     

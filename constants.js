@@ -1,8 +1,8 @@
 import { Dimensions } from 'react-native';
 
 export const sharps = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
-//                      0     1    2    3     4    5     6    7    8     9    10   11
-export const flats = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'];
+//  Indices             0    1     2    3     4    5     6    7    8    9    10   11
+export const flats =  ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'];
 
 export const scales = [
     {
@@ -59,7 +59,7 @@ export const scales = [
     },
     {
         name: 'Arabic',
-        pattern: ['h', 'a', 'h', 'w', 'h', 'a', 'h']
+        pattern: ['h', 'a', 'h', 'w', 'h', 'w', 'w']
     },
     {
         name: 'Persian',
@@ -75,15 +75,24 @@ export const scales = [
 
 const { width, height } = Dimensions.get('window');
 
-
 const determineScreenSize = (w, h) => {
-    if ( width >= 1366 && height >= 1024) {
+    if ( w >= 1366 && h >= 1024) {
         return 'xl'
-    } else if (width >= 1024 && height >= 768) {
+    } else if (w >= 1024 && h >= 768) {
         return 'large'
-    } else if (width <= 667 && height <= 375) {
+    } else if (w <= 667 && h <= 375) {
         return 'small'
     } else return 'medium'
 }
 
 export const screenSize = determineScreenSize(width, height)
+
+export const assignStyles = (screenSize) => {
+    if (screenSize === 'small') {
+    this.setState({ styles: styles_small })
+  } else if (screenSize === 'large') {
+    this.setState({ styles: styles_large })
+  } else if (screenSize === 'xl') {
+    this.setState({ styles: styles_xl })
+  }
+}

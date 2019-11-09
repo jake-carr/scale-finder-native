@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Picker } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import { sharps, flats, scales, screenSize } from '../constants.js';
+import { sharps, flats, scales, screenSize, assignStyles } from '../constants.js';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create ({
@@ -205,13 +205,7 @@ class HomePage extends React.Component {
   };
 
   componentDidMount() {
-    if (screenSize === 'small') {
-      this.setState({ styles: styles_small })
-    } else if (screenSize === 'large') {
-      this.setState({ styles: styles_large })
-    } else if (screenSize === 'xl') {
-      this.setState({ styles: styles_xl })
-    }
+    assignStyles(screenSize);
   }
 
   renderButton = () => {

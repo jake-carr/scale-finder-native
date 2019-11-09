@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { screenSize } from '../constants';
+import { screenSize, assignStyles } from '../constants';
 
 const styles = StyleSheet.create({
   row: {
@@ -102,13 +102,7 @@ export default class FretLabels extends Component {
   }
 
   componentDidMount() {
-    if (screenSize === 'small') {
-      this.setState({ styles: styles_small })
-    } else if (screenSize === 'large') {
-      this.setState({ styles: styles_large })
-    } else if (screenSize === 'xl') {
-      this.setState({ styles: styles_xl })
-    }
+    assignStyles(screenSize);
   }
 
 

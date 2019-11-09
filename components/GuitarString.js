@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { screenSize } from '../constants';
+import { screenSize, assignStyles } from '../constants';
 import Square from './Square';
 
 const styles = StyleSheet.create({
@@ -83,31 +83,15 @@ class GuitarString extends React.Component {
   }
 
   componentDidMount() {
-    if (screenSize === 'small') {
-      this.setState({ styles: styles_small })
-    } else if (screenSize === 'large') {
-      this.setState({ styles: styles_large })
-    } else if (screenSize === 'xl') {
-      this.setState({ styles: styles_xl })
-    }
+    assignStyles(screenSize);
   }
-
-  // remember to import screenSize and change styles to this.state.styles
-
-  //this.props.preference = array of notes
-  //this.props.root = starting point
-  //this.props.scale = scale pattern
-
 
   renderFrets = () => {
     let root = this.props.root;
     let arr = [...this.props.preference];
     let full = arr.concat(arr, arr);
     let rootIndex = this.props.preference.indexOf(root);
-    // 12 frets
     const frets = [...Array(12).keys()];
-    // 24 frets
-    // const frets = [...Array(24).keys()]; 
 
     return frets.map(idx => {
       const fret = idx + 1;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import { sharps, flats, scales, screenSize } from '../constants.js';
+import { sharps, flats, scales, screenSize, assignStyles } from '../constants.js';
 import {
   createScale,
   convertNoteToString
@@ -265,13 +265,7 @@ class ScalePage extends React.Component {
   };
 
   componentDidMount() {
-    if (screenSize === 'small') {
-      this.setState({ styles: styles_small })
-    } else if (screenSize === 'large') {
-      this.setState({ styles: styles_large })
-    } else if (screenSize === 'xl') {
-      this.setState({ styles: styles_xl })
-    }
+    assignStyles(screenSize);
   }
 
 
@@ -286,13 +280,11 @@ class ScalePage extends React.Component {
       this.setState({
         preference: flats,
         toggleButtonDisplay: '♯',
-        highlightAllRoots: false,
       });
     } else {
       this.setState({
         preference: sharps,
         toggleButtonDisplay: '♭',
-        highlightAllRoots: false,
       });
     }
   };
