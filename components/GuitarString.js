@@ -1,89 +1,93 @@
-import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import { screenSize, assignStyles } from '../constants';
-import Square from './Square';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { screenSize } from "../constants";
+import Square from "./Square";
 
 const styles = StyleSheet.create({
   row: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'center',
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "center"
   },
   p: {
-    marginRight: '2%',
-    color: '#DCDCDC',
+    marginRight: "2%",
+    color: "#DCDCDC",
     fontSize: 22,
-    paddingTop: '0.3%',
-    textAlign: 'center',
-    textAlignVertical: 'center',  
-  },
+    paddingTop: "0.3%",
+    textAlign: "center",
+    textAlignVertical: "center"
+  }
 });
 
 const styles_small = StyleSheet.create({
   row: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     marginBottom: 3,
-    width: '100%',
-    justifyContent: 'center',
+    width: "100%",
+    justifyContent: "center"
   },
   p: {
-    marginRight: '2%',
-    color: '#DCDCDC',
+    marginRight: "2%",
+    color: "#DCDCDC",
     fontSize: 22,
-    textAlign: 'center',
-    textAlignVertical: 'center',  
-  },
+    textAlign: "center",
+    textAlignVertical: "center"
+  }
 });
 
 const styles_large = StyleSheet.create({
   row: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     marginBottom: 5,
-    width: '100%',
-    justifyContent: 'center',
+    width: "100%",
+    justifyContent: "center"
   },
   p: {
-    marginRight: '2%',
-    color: '#DCDCDC',
+    marginRight: "2%",
+    color: "#DCDCDC",
     fontSize: 24,
-    fontWeight: 'bold',
-    paddingTop: '0.25%',
-    textAlign: 'center',
-    textAlignVertical: 'center',  
-  },
+    fontWeight: "bold",
+    paddingTop: "0.25%",
+    textAlign: "center",
+    textAlignVertical: "center"
+  }
 });
 
 const styles_xl = StyleSheet.create({
   row: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     marginBottom: 5,
-    width: '100%',
-    justifyContent: 'center',
-    marginTop: 5,
+    width: "100%",
+    justifyContent: "center",
+    marginTop: 5
   },
   p: {
-    marginRight: '2%',
-    color: '#DCDCDC',
+    marginRight: "2%",
+    color: "#DCDCDC",
     fontSize: 32,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    textAlignVertical: 'center',  
-  },
+    fontWeight: "bold",
+    textAlign: "center",
+    textAlignVertical: "center"
+  }
 });
 
-
 class GuitarString extends React.Component {
-
   state = {
     styles: styles
-  }
+  };
 
   componentDidMount() {
-    assignStyles(screenSize);
+    if (screenSize === "small") {
+      this.setState({ styles: styles_small });
+    } else if (screenSize === "large") {
+      this.setState({ styles: styles_large });
+    } else if (screenSize === "xl") {
+      this.setState({ styles: styles_xl });
+    }
   }
 
   renderFrets = () => {
@@ -96,7 +100,7 @@ class GuitarString extends React.Component {
     return frets.map(idx => {
       const fret = idx + 1;
       return (
-        <React.Fragment key={'square:' + idx}>
+        <React.Fragment key={"square:" + idx}>
           <Square
             scale={this.props.scale}
             preference={this.props.preference}

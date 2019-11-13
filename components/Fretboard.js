@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import GuitarString from './GuitarString';
 import FretLabels from './FretLabels';
-import { screenSize, assignStyles } from '../constants'
+import { screenSize } from '../constants'
 
 const styles = StyleSheet.create({
   fretboard: {
@@ -61,7 +61,13 @@ class Fretboard extends React.Component {
   }
 
   componentDidMount() {
-    assignStyles(screenSize);
+    if (screenSize === 'small') {
+      this.setState({ styles: styles_small })
+    } else if (screenSize === 'large') {
+      this.setState({ styles: styles_large })
+    } else if (screenSize === 'xl') {
+      this.setState({ styles: styles_xl })
+    }
   }
 
 
@@ -71,27 +77,27 @@ class Fretboard extends React.Component {
 
     return roots.map((value, idx) => {
       return (
-          <GuitarString
-              scale={this.props.scale}
-              preference={this.props.preference}
-              root={value}
-              key={keys[idx]}
-              highlightAllRoots={this.props.highlightAllRoots}
-          ></GuitarString>
+        <GuitarString
+          scale={this.props.scale}
+          preference={this.props.preference}
+          root={value}
+          key={keys[idx]}
+          highlightAllRoots={this.props.highlightAllRoots}
+        ></GuitarString>
       );
     });
   };
 
-    render() {
-      return (
-        <View>
-          <View style={this.state.styles.fretboard} className="fretboard">
-            {this.renderGuitarStrings()}
-            <FretLabels />
-          </View>
+  render() {
+    return (
+      <View>
+        <View style={this.state.styles.fretboard} className="fretboard">
+          {this.renderGuitarStrings()}
+          <FretLabels />
         </View>
-      );
-    }
+      </View>
+    );
   }
+}
 
-  export default Fretboard;
+export default Fretboard;
